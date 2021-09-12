@@ -1,14 +1,13 @@
 // Update with your config settings.
 
+
 module.exports = {
 
-
-  staging: {
     client: 'mysql',
     connection: {
       database: 'graphql',
       user:     'root',
-      password: 'root'
+      password: '123'
     },
     pool: {
       min: 2,
@@ -17,6 +16,5 @@ module.exports = {
     migrations: {
       tableName: 'knex_migrations'
     }
-  }
 
 };
