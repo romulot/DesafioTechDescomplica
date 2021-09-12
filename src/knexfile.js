@@ -1,4 +1,5 @@
 // Update with your config settings.
+const env = require('../../.env')
 
 
 module.exports = {
@@ -6,8 +7,8 @@ module.exports = {
     client: 'mysql',
     connection: {
       database: 'graphql',
-      user:     'root',
-      password: '123'
+      user:     env.user,
+      password: env.password
     },
     pool: {
       min: 2,
