@@ -3,9 +3,9 @@ const {makeExecutableSchema} = require('graphql-tools')
 
 const alunoAttribs = `
     id: ID
-    nome: String!
-    cpf: String!
-    email: String!
+    nome: String
+    cpf: String
+    email: String
 `
 
 const typeDefs = `
@@ -23,9 +23,15 @@ const typeDefs = `
         ${alunoAttribs}
     }
 
+    input FiltroInput {
+        id: ID
+        email: String
+    }
+
     type Mutation {
         createAluno(input: alunoInput): Aluno
-     
+        updateAluno(id: ID!, input: alunoInput): Aluno
+        deleteAluno(filtro: FiltroInput): Boolean
     }
 
 `
