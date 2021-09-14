@@ -28,15 +28,6 @@ module.exports = {
             })
             return await db('alunos').where({ id }).first()
           
-        },
-
-        async deleteAluno (_, filtro){
-            
-            if (filtro.id) {
-                return await db('alunos').where({id: filtro.id}).delete();
-            }
-            
-            throw new Error("Faltou um parametro");
         }
         
         

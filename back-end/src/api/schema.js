@@ -31,7 +31,6 @@ const typeDefs = `
     type Mutation {
         createAluno(input: alunoInput): Aluno
         updateAluno(id: ID!, input: alunoInput): Aluno
-        deleteAluno(filtro: FiltroInput): Boolean
     }
 
 `
