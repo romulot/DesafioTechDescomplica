@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useQuery } from "@apollo/client";
+
+import ALUNOS from "./querys/index";
+
+import "./App.css";
 
 function App() {
+  const { loading, error, data } = useQuery(ALUNOS);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>an error occurred...</p>;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="parent">
+      {data.getAlunos.map((aluno, index) => (
+          <div className="container">
+            <p>
+              <b>Nome:</b> {aluno.nome}
+            </p>
+            <p>
+              <b>CPF:</b> {aluno.cpf}
+            </p>
+            <p>
+              <b>EMAIL:</b> {aluno.email}
+            </p>
+          </div>
+      ))}
+    </section>
   );
 }
 
